@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.mcone.ScareOne</groupId>
+    <artifactId>mcone-ScareOne</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <developers>
+        <developer>
+            <id>marvinhuelsmann</id>
+            <name>Marvin Huelsmann</name>
+            <organization>MC ONE</organization>
+            <organizationUrl>https://www.mcone.eu</organizationUrl>
+            <roles>
+                <role>adminstrator</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Berlin</timezone>
+        </developer>
+        <developer>
+            <id>dominklippl</id>
+            <name>Dominik Lippl</name>
+            <url>https://dominiklippl.de</url>
+            <organization>MC ONE</organization>
+            <organizationUrl>https://www.mcone.eu</organizationUrl>
+            <roles>
+                <role>adminstrator</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Berlin</timezone>
+        </developer>
+        <developer>
+            <id>rufusmaiwald</id>
+            <name>Rufus Maiwald</name>
+            <url>https://rufusmaiwald.de</url>
+            <organization>MC ONE</organization>
+            <organizationUrl>https://www.mcone.eu</organizationUrl>
+            <roles>
+                <role>adminstrator</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Berlin</timezone>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>onegaming-gitlab-systems</id>
+            <url>https://gitlab.onegaming.group/api/v4/groups/systems/-/packages/maven</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>onegaming-gitlab</id>
+            <url>https://gitlab.onegaming.group/api/v4/projects/23/packages/maven</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency> <!-- MCONE GameApi (This includes the api module) -->
+            <groupId>eu.mcone.gameapi</groupId>
+            <artifactId>api</artifactId>
+            <version>4.1.2-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.mcone.coresystem</groupId>
+            <artifactId>bukkit-api</artifactId>
+            <version>10.9.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
