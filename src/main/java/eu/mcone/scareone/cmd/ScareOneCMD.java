@@ -1,6 +1,6 @@
-package eu.mcone.ScareOne.cmd;
+package eu.mcone.scareone.cmd;
 
-import eu.mcone.ScareOne.ScareOne;
+import eu.mcone.scareone.ScareOne;
 import eu.mcone.coresystem.api.bukkit.command.CoreCommand;
 import org.bukkit.command.CommandSender;
 

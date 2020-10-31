@@ -1,6 +1,6 @@
-package eu.mcone.ScareOne.player;
+package eu.mcone.scareone.player;
 
-import eu.mcone.ScareOne.ScareOne;
+import eu.mcone.scareone.ScareOne;
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.coresystem.api.bukkit.player.plugin.GamePlayerInventory;
 import eu.mcone.coresystem.api.bukkit.player.profile.PlayerDataProfile;

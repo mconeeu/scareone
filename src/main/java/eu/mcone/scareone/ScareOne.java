@@ -1,17 +1,15 @@
-package eu.mcone.ScareOne;
+package eu.mcone.scareone;
 
-import eu.mcone.ScareOne.cmd.ScareOneCMD;
-import eu.mcone.ScareOne.listeners.GeneralPlayerListener;
-import eu.mcone.ScareOne.listeners.PlayerMoveListener;
-import eu.mcone.ScareOne.player.ScareOnePlayer;
-import eu.mcone.ScareOne.util.JumpScareManager;
+import eu.mcone.scareone.cmd.ScareOneCMD;
+import eu.mcone.scareone.listeners.GeneralPlayerListener;
+import eu.mcone.scareone.listeners.PlayerMoveListener;
+import eu.mcone.scareone.player.ScareOnePlayer;
+import eu.mcone.scareone.util.JumpScareManager;
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
 import eu.mcone.coresystem.api.bukkit.gamemode.Gamemode;
 import eu.mcone.coresystem.api.bukkit.world.CoreWorld;
 import eu.mcone.gameapi.api.GamePlugin;
-import eu.mcone.gameapi.api.player.GamePlayer;
 import lombok.Getter;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;

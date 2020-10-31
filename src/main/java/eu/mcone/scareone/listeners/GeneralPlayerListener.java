@@ -1,11 +1,10 @@
-package eu.mcone.ScareOne.listeners;
+package eu.mcone.scareone.listeners;
 
-import eu.mcone.ScareOne.ScareOne;
-import eu.mcone.ScareOne.objectives.SidebarObjective;
-import eu.mcone.ScareOne.player.ScareOnePlayer;
+import eu.mcone.scareone.ScareOne;
+import eu.mcone.scareone.objectives.SidebarObjective;
+import eu.mcone.scareone.player.ScareOnePlayer;
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
 import eu.mcone.gameapi.api.event.player.GamePlayerLoadedEvent;
-import eu.mcone.gameapi.api.player.GamePlayer;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;

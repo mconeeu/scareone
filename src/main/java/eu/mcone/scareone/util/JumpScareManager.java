@@ -1,6 +1,6 @@
-package eu.mcone.ScareOne.util;
+package eu.mcone.scareone.util;
 
-import eu.mcone.ScareOne.enums.ScareLocations;
+import eu.mcone.scareone.enums.ScareLocations;
 import org.bukkit.Effect;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;

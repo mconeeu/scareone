@@ -1,17 +1,11 @@
-package eu.mcone.ScareOne.objectives;
+package eu.mcone.scareone.objectives;
 
-import eu.mcone.ScareOne.ScareOne;
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
 import eu.mcone.coresystem.api.bukkit.gamemode.Gamemode;
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.coresystem.api.bukkit.scoreboard.CoreSidebarObjectiveEntry;
 import eu.mcone.coresystem.api.bukkit.stats.CoreStats;
-import eu.mcone.gameapi.api.Module;
 import eu.mcone.gameapi.api.scoreboard.GameObjective;
-import org.bukkit.scoreboard.DisplaySlot;
-
-import java.util.Calendar;
-import java.util.TimeZone;
 
 public class SidebarObjective extends GameObjective {
 

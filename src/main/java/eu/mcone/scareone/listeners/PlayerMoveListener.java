@@ -1,7 +1,7 @@
-package eu.mcone.ScareOne.listeners;
+package eu.mcone.scareone.listeners;
 
-import eu.mcone.ScareOne.ScareOne;
-import eu.mcone.ScareOne.enums.ScareLocations;
+import eu.mcone.scareone.ScareOne;
+import eu.mcone.scareone.enums.ScareLocations;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

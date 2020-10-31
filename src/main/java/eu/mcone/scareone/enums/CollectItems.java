@@ -1,6 +1,6 @@
-package eu.mcone.ScareOne.enums;
+package eu.mcone.scareone.enums;
 
-import eu.mcone.ScareOne.ScareOne;
+import eu.mcone.scareone.ScareOne;
 import eu.mcone.coresystem.api.bukkit.item.ItemBuilder;
 import lombok.Getter;
 import org.bukkit.Location;

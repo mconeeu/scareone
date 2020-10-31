@@ -1,0 +1,5 @@
+name: MCONE-ScareOne
+author: Marvin Hülsmann
+version: ${project.version}
+main: eu.mcone.scareone.ScareOne
+depend: [MCONE-BukkitCoreSystem, MCONE-GameAPI]
