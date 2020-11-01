@@ -1,10 +1,12 @@
 package eu.mcone.scareone.listeners;
 
+import eu.mcone.coresystem.api.bukkit.CoreSystem;
+import eu.mcone.gameapi.api.event.player.GamePlayerLoadedEvent;
 import eu.mcone.scareone.ScareOne;
 import eu.mcone.scareone.objectives.SidebarObjective;
 import eu.mcone.scareone.player.ScareOnePlayer;
-import eu.mcone.coresystem.api.bukkit.CoreSystem;
-import eu.mcone.gameapi.api.event.player.GamePlayerLoadedEvent;
+import eu.mcone.scareone.util.HotbarItems;
+import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -25,7 +27,18 @@ public class GeneralPlayerListener implements Listener {
     @EventHandler
     public void on(PlayerJoinEvent e) {
         Player p = e.getPlayer();
+        ScareOnePlayer scareOnePlayer = ScareOne.getInstance().getScareOnePlayer(p);
+
         p.setGameMode(GameMode.SURVIVAL);
+        p.teleport(scareOnePlayer.getLevel().getStartLocation());
+
+        p.getInventory().setItem(0, HotbarItems.COLLECT_ITEM);
+        p.getInventory().setItem(1, HotbarItems.WORLD_ITEM);
+
+        for (ScareOnePlayer player : ScareOne.getInstance().getPlayers()) {
+            p.hidePlayer(player.bukkit());
+            player.bukkit().hidePlayer(p);
+        }
 
         e.setJoinMessage(null);
     }
@@ -39,11 +52,17 @@ public class GeneralPlayerListener implements Listener {
 
         new ScareOnePlayer(e.getCorePlayer());
         e.getCorePlayer().getScoreboard().setNewObjective(new SidebarObjective());
+
+
+        ScareOnePlayer scareOnePlayer = ScareOne.getInstance().getScareOnePlayer(e.getBukkitPlayer());
+        ScareOne.getInstance().getMessenger().send(e.getCorePlayer().bukkit(), scareOnePlayer.getLevel().getQuest().getText());
     }
 
     @EventHandler
-    public void onFight(PlayerDeathEvent e) {
+    public void onDeath(PlayerDeathEvent e) {
+        ScareOnePlayer scareOnePlayer = ScareOne.getInstance().getScareOnePlayer(e.getEntity());
 
+        e.getEntity().teleport(scareOnePlayer.getLevel().getStartLocation());
     }
 
     @EventHandler
@@ -65,15 +84,7 @@ public class GeneralPlayerListener implements Listener {
 
     @EventHandler
     public void onEntityDamage(EntityDamageEvent e) {
-        Entity ent = e.getEntity();
-
-        if (ent instanceof Player) {
-            if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
-                e.setCancelled(true);
-            } else if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
-                e.setCancelled(true);
-            }
-        }
+        e.setCancelled(true);
     }
 
     @EventHandler

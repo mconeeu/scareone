@@ -17,7 +17,6 @@ public class PlayerMoveListener implements Listener {
         int max = 10;
 
         for (int i = 0; i < max; i++) {
-            i++;
             for (ScareLocations scareLocation : ScareLocations.values()) {
                 if (ScareOne.getInstance().getGameWorld().getLocation(scareLocation.getLocation().toString() + i) != null) {
                     Location location = ScareOne.getInstance().getGameWorld().getLocation(scareLocation.getLocation().toString() + i);
@@ -26,6 +25,7 @@ public class PlayerMoveListener implements Listener {
                     }
                 }
             }
+            i++;
         }
     }
 }

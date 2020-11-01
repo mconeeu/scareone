@@ -10,6 +10,8 @@ import org.bukkit.util.Vector;
 
 public class JumpScareManager {
 
+    //TODO: ADD NPC AND PETS AND MORE SCARE FACTOR
+
     public void playGateWayJumpScare(Player player) {
 
         Vector normalBoost = player.getLocation().getDirection().multiply(2).setY(0.5);
@@ -20,7 +22,6 @@ public class JumpScareManager {
         player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2, 1));
         player.spigot().playEffect(player.getLocation(), Effect.EXPLOSION_LARGE, 1, 1, 1, 1, 1, 3, 5, 19);
         player.setVelocity(normalBoost);
-
 
     }
 

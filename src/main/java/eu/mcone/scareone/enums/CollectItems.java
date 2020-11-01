@@ -11,7 +11,10 @@ import org.bukkit.inventory.ItemStack;
 public enum CollectItems {
 
     GIFT("Geschenk", 1, new ItemBuilder(Material.BEACON).displayName("§fGeschenk").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("gift")),
-    CARD("Karte", 2, new ItemBuilder(Material.BEACON).displayName("§fKarte").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("card"));
+    SWORD("Schwert", 2, new ItemBuilder(Material.IRON_SWORD).displayName("§fSchwert").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("schwert")),
+    SPIDER_EYE("Spinnen Auge", 3, new ItemBuilder(Material.SPIDER_EYE).displayName("§fSpinnen Auge").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("spider-eye")),
+    FLOWER("Blume", 3, new ItemBuilder(Material.YELLOW_FLOWER).displayName("§fGelbe Blume").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("flower")),
+    CARD("Karte", 4, new ItemBuilder(Material.BEACON).displayName("§fKarte").create(), ScareOne.getInstance().getGameWorld().getBlockLocation("card"));
 
     private final String name;
     private final Integer id;

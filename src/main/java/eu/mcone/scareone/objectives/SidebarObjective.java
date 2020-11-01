@@ -9,6 +9,8 @@ import eu.mcone.gameapi.api.scoreboard.GameObjective;
 
 public class SidebarObjective extends GameObjective {
 
+    //TODO edit this scoreboard in the database!
+
     public SidebarObjective() {
         super("Ingame");
     }

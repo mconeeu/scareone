@@ -1,7 +1,11 @@
 package eu.mcone.scareone;
 
+import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
+import eu.mcone.coresystem.api.core.exception.MotionCaptureNotDefinedException;
 import eu.mcone.scareone.cmd.ScareOneCMD;
+import eu.mcone.scareone.enums.Captures;
 import eu.mcone.scareone.listeners.GeneralPlayerListener;
+import eu.mcone.scareone.listeners.PlayerInteractListener;
 import eu.mcone.scareone.listeners.PlayerMoveListener;
 import eu.mcone.scareone.player.ScareOnePlayer;
 import eu.mcone.scareone.util.JumpScareManager;
@@ -10,6 +14,7 @@ import eu.mcone.coresystem.api.bukkit.gamemode.Gamemode;
 import eu.mcone.coresystem.api.bukkit.world.CoreWorld;
 import eu.mcone.gameapi.api.GamePlugin;
 import lombok.Getter;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,9 +38,13 @@ public class ScareOne extends GamePlugin {
 
     @Override
     public void onGameEnable() {
+
         instance = this;
         players = new ArrayList<>();
         gameWorld = CoreSystem.getInstance().getWorldManager().getWorld(getGameConfig().parseConfig().getGameWorld());
+
+        sendConsoleMessage("§aLoad Captures...");
+        loadAutoCaptures();
 
         sendConsoleMessage("§aRegistering Commands and Listeners...");
         registerCommands(
@@ -43,7 +52,8 @@ public class ScareOne extends GamePlugin {
         );
         registerEvents(
                 new PlayerMoveListener(),
-                new GeneralPlayerListener()
+                new GeneralPlayerListener(),
+                new PlayerInteractListener()
         );
 
         sendConsoleMessage("§aVersion §f" + this.getDescription().getVersion() + "§a enabled...");
@@ -58,6 +68,14 @@ public class ScareOne extends GamePlugin {
         sendConsoleMessage("§cPlugin disabled!");
     }
 
+    private static void loadAutoCaptures() {
+        for (Captures capture : Captures.values()) {
+                capture.getNpc().playMotionCapture(capture.getMotionCapture());
+                CoreSystem.getInstance().getNpcManager().getMotionCaptureHandler().getMotionCaptureScheduler().addNpc(capture.getNpc());
+
+        }
+    }
+
     public ScareOnePlayer getScareOnePlayer(UUID uuid) {
         for (ScareOnePlayer kp : players) {
             if (kp.getCorePlayer().getUuid().equals(uuid)) {
@@ -67,14 +85,16 @@ public class ScareOne extends GamePlugin {
         return null;
     }
 
-    public ScareOnePlayer getScareOnePlayer(String name) {
+    public ScareOnePlayer getScareOnePlayer(Player player) {
         for (ScareOnePlayer kp : players) {
-            if (kp.getCorePlayer().getName().equals(name)) {
+            CorePlayer corePlayer = CoreSystem.getInstance().getCorePlayer(player);
+            if (kp.getCorePlayer().equals(corePlayer)) {
                 return kp;
             }
         }
         return null;
     }
+
 
     public Collection<ScareOnePlayer> getOnlineScareOnePlayers() {
         return new ArrayList<>(players);
